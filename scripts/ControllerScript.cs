@@ -259,7 +259,7 @@ public class ControllerScript : MonoBehaviour {
 				bJumpFlag = true;
 			}
 		}
-		else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))//лево
+		else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))//право
 		{
 			if (iLanePosition != 1) 
 			{
@@ -270,7 +270,7 @@ public class ControllerScript : MonoBehaviour {
 				
 			}
 		}
-		else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))//право
+		else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))//лево
 		{
 			if (iLanePosition != -1) 
 			{
@@ -290,9 +290,9 @@ public class ControllerScript : MonoBehaviour {
 			bDiveFlag = true;
 		}
 
-		if (Input.GetKeyUp(KeyCode.LeftArrow))	{
+		if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))	{
 			_anim.SetBool("left",false);
-		} else if (Input.GetKeyUp(KeyCode.RightArrow)) {
+		} else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow)) {
 			_anim.SetBool("right",false);
 		}
 		
