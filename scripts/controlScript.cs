@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class controlScript : MonoBehaviour {
 
-	//private Strafe StrafeDirection;
+
 	private Transform tPlayer;	
 	public Transform rPlayer;
-    public patchRandomizer pRandomizer;
-    public animScript player;
-    public floorScript floor;
+    	public patchRandomizer pRandomizer;
+    	public animScript player;
+    	public floorScript floor;
 
-    private Transform frontCollider;    //контроль коллайдера спереди
-    private readonly ir_State gState = ir_State.GetInstance();
-    private Transform tShadow;	        //тень
-    private RaycastHit hitInfo;	        //что под ногами?
+    	private Transform frontCollider;    //контроль коллайдера спереди
+    	private readonly ir_State gState = ir_State.GetInstance();
+    	private Transform tShadow;	        //тень
+    	private RaycastHit hitInfo;	        //что под ногами?
 
 	private float currAngle;	
 	private float jumpForwardFactor;	
@@ -52,20 +52,20 @@ public class controlScript : MonoBehaviour {
 	private bool  mouseReleased = true;
 	private bool  controlsEnabled = true;
 
-    //для расчета скорости
-    private float currRunSpeed;
-    private float speedMultiplier = 5.0f;
-    private const float startRunSpeed = 150.0f;
-    private const float endRunSpeed = 230.0f;
-    private const int acceleration = 500;
-    private const float currAcceleration = 0.5f;
+    	//для расчета скорости
+    	private float currRunSpeed;
+    	private float speedMultiplier = 5.0f;
+    	private const float startRunSpeed = 150.0f;
+    	private const float endRunSpeed = 230.0f;
+    	private const int acceleration = 500;
+    	private const float currAcceleration = 0.5f;
 
-    //высота прыжка
-    private const float jumpPush = 185;
+    	//высота прыжка
+    	private const float jumpPush = 185;
 
-    private float currDistanceOnPath;
+    	private float currDistanceOnPath;
 
-    void Start (){
+    	void Start (){
 		tPlayer = transform;
 
 		bInAir = false;
@@ -130,7 +130,7 @@ public class controlScript : MonoBehaviour {
 			currRunSpeed += (currAcceleration * Time.fixedDeltaTime);
 	}
 
-    private void SetForwardSpeed (){
+    	private void SetForwardSpeed (){
 		//Игрок на земле?
 		if(floor.IsFallingInPit())
 		{
@@ -346,14 +346,6 @@ public class controlScript : MonoBehaviour {
 		}
 	}
 
-    /*
-	private void SwitchStrafeToSprint (){
-		player.Extern("right",false);
-		player.Extern("left",false);
-		bInStrafe = false;
-	}
-    */
-
 	private void SlidePlayer (){
 		bInslide = true;
 		player.Extern("slide",true);
@@ -378,8 +370,7 @@ public class controlScript : MonoBehaviour {
 	public void SetPitFallLerpValue (float value){ pitFallLerpValue = value; }
 	public void SetPitFallForwardSpeed (float value){ pitFallForwardSpeed = value; }
 	public float GetCurrForwardSpeed (){ return currForwardSpeed; }
-//	public float GetCurrPlayerRotation (){ return currAngle; }
-    public float GetRunSpeed() { return Mathf.Clamp((currRunSpeed/startRunSpeed)/1.1f, 0.8f, 1.2f); }
+    	public float GetRunSpeed() { return Mathf.Clamp((currRunSpeed/startRunSpeed)/1.1f, 0.8f, 1.2f); }
 	public string GetCurrMileage() { return "Distance: " + ((int)currMileage).ToString(); }
 
 }
