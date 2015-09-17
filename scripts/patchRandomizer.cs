@@ -6,34 +6,34 @@ public class patchRandomizer : MonoBehaviour {
 	public GameObject[] patchesPrefabs; //из чего будем генерировать
 	public Transform tPlayer;           //игрок
 	public controlScript ctrlScript;
-    private readonly ir_State gState = ir_State.GetInstance();
+    	private readonly ir_State gState = ir_State.GetInstance();
 
-    private Vector3 currDir;
-    private Vector2 currMidPoint;
-    private Vector3[] currCPPositions;
-    private Vector3[] nextCPPositions;
+    	private Vector3 currDir;
+    	private Vector2 currMidPoint;
+    	private Vector3[] currCPPositions;
+    	private Vector3[] nextCPPositions;
 
-    private GameObject prevPatch;
+    	private GameObject prevPatch;
 	private GameObject currPatch;
 	private GameObject nextPatch;
 	private GameObject currPath;
 	private GameObject nextPath;
 	private float patchDistance;	    //длин участка
 	private float prevDistance;	        //пройдено
-    public float backOffset = 200.0f;   //удаляем старые через?
-    private float currAngle;
-    private float currentPercent;
+    	public float backOffset = 200.0f;   //удаляем старые через?
+    	private float currAngle;
+    	private float currentPercent;
 
-    void Start (){
-        InstantiateStartPatch();		
-	    SetChildGroups();
-	    SetCurrentPatchCPs();
-	    SetNextPatchCPs();
-    }
+    	void Start (){
+        	InstantiateStartPatch();		
+	    	SetChildGroups();
+	    	SetCurrentPatchCPs();
+	    	SetNextPatchCPs();
+    	}
 
 	void Update (){
-	    if(gState.IsPausedOrDead())
-		    return;
+	    	if(gState.IsPausedOrDead())
+		    	return;
 	
 		if(prevPatch && tPlayer.position.x>prevDistance-patchDistance+backOffset)
 		    Destroy(prevPatch);

@@ -4,13 +4,13 @@ using UnityEngine;
 public class gameScript : MonoBehaviour {
 
 	private readonly ir_State gState = ir_State.GetInstance();
-    private readonly ir_Health pHealth = ir_Health.GetInstance();
+    	private readonly ir_Health pHealth = ir_Health.GetInstance();
 
 	void Start() {
 		RenderSettings.fogColor = Color.black;
 		RenderSettings.fog = true;				//включает черный туман
 
-        gState.SetState(GameState.Pause);
+        	gState.SetState(GameState.Pause);
 	}
 	
 	void Update() {	
@@ -24,7 +24,7 @@ public class gameScript : MonoBehaviour {
 	}
 	
 	public void LaunchGame() {
-        gState.SetState(GameState.Play);
+        	gState.SetState(GameState.Play);
 	}
 
 	public void Death() {

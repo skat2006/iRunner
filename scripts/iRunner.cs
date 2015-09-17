@@ -3,15 +3,15 @@
 namespace iRunner
 {
 
-    public enum GameState //состояние
-    {
-        Menu = 0,   //в меню
-        Play = 1,   //игра запущена
-        Pause = 2,  //пауза
-        Death = 3   //смерть
-    }
+    	public enum GameState //состояние
+    	{
+        	Menu = 0,   //в меню
+        	Play = 1,   //игра запущена
+        	Pause = 2,  //пауза
+        	Death = 3   //смерть
+    	}
 
-    public enum Strafe  //смена полосы
+    	public enum Strafe  //смена полосы
 	{
 		Left = 0,   //лево
 		Right = 1   //право
@@ -71,45 +71,45 @@ namespace iRunner
 		}
 	}
 
-    public class ir_Health
-    {
-        private static ir_Health healthManager;
+    	public class ir_Health
+    	{
+        	private static ir_Health healthManager;
 
-        public static ir_Health GetInstance() {
-            return healthManager ?? (healthManager = new ir_Health());
-        }
+        	public static ir_Health GetInstance() {
+            		return healthManager ?? (healthManager = new ir_Health());
+        	}
 
-        private int health = 100;
+        	private int health = 100;
 
-        public void LoseHealth(int damage) {
-            health -= damage;
-        }
+        	public void LoseHealth(int damage) {
+            		health -= damage;
+        	}
 
-        public int GetHealth() {
-            return health;
-        }
-    }
+        	public int GetHealth() {
+            		return health;
+        	}
+    	}
 
-    public class ir_State
-    {
-        private static ir_State gameState;
+    	public class ir_State
+    	{
+        	private static ir_State gameState;
 
-        public static ir_State GetInstance() {
-            return gameState ?? (gameState = new ir_State());
-        }
+        	public static ir_State GetInstance() {
+            		return gameState ?? (gameState = new ir_State());
+        	}
 
-        private GameState currentState;
+        	private GameState currentState;
 
-        public void SetState(GameState gState) {
-            currentState = gState;
-        }
+        	public void SetState(GameState gState) {
+            		currentState = gState;
+        	}
 
-        public GameState GetState() {
-            return currentState;
-        }
+        	public GameState GetState() {
+            		return currentState;
+        	}
 
-        public bool IsPausedOrDead() {
-            return ((currentState == GameState.Pause) || (currentState == GameState.Death));
-        }
-    }
+        	public bool IsPausedOrDead() {
+            		return ((currentState == GameState.Pause) || (currentState == GameState.Death));
+        	}
+    	}
 }
